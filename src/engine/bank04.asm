@@ -2124,9 +2124,6 @@ Func_11737:
 	ld de, $5c93
 	call Func_117e4
 	ret
-; 0x1177f
-
-SECTION "Bank 4@577f", ROMX[$577f], BANK[$4]
 
 Func_1177f:
 	xor a

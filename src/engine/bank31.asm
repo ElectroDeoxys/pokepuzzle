@@ -1641,7 +1641,7 @@ Func_c5bea:
 	ret
 
 Func_c5c31:
-	ld de, wCursorX
+	ld de, wPdPCursorX
 	ld bc, $38
 	call ClearMemory
 	ld de, w1d100

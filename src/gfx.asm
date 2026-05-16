@@ -14,9 +14,47 @@ SECTION "Bank 36", ROMX
 SECTION "Bank 36@6170", ROMX[$6170], BANK[$36]
 PressStartGfx:: INCBIN "gfx/press_start.2bpp"
 
+SECTION "Bank 36@6c50", ROMX[$6c50], BANK[$36]
+Pals_dac50::
+	rgb  0,  0,  0
+	rgb 14,  0,  0
+	rgb 14, 13,  0
+	rgb 31, 31, 31
+
+	rgb  0,  0,  0
+	rgb  0,  0, 16
+	rgb  0,  9, 19
+	rgb 31, 31, 31
+
+	rgb  0,  0,  0
+	rgb  0, 11,  0
+	rgb  8,  0, 18
+	rgb 31, 31, 31
+; 0xdac68
+
 SECTION "Bank 38", ROMX
 BlocksGfx:: INCBIN "gfx/blocks.2bpp"
 Gfx_e1000:: INCBIN "gfx/gfx_e1000.2bpp"
+
+SECTION "Bank 38@5880", ROMX[$5880], BANK[$38]
+
+Pals_e1880::
+	rgb 31,  8,  6
+	rgb 21,  0,  0
+	rgb 16, 15,  0
+	rgb 28, 27,  0
+
+	rgb  6,  9, 31
+	rgb  0,  0, 22
+	rgb  0, 11, 31
+	rgb  0, 21, 31
+
+	rgb  3, 31,  5
+	rgb  0, 16,  0
+	rgb 14,  0, 22
+	rgb 31,  3, 31
+; 0xe1898
+
 SECTION "Bank 38@58a0", ROMX[$58a0], BANK[$38]
 StopCounterGfx:: INCBIN "gfx/stop_counter.2bpp"
 

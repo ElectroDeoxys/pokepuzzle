@@ -1,6 +1,7 @@
 Func_40000:
 	xor a
 	ld [wc87e], a
+Func_40004:
 	ld a, [wGameMode]
 	add a
 	ld c, a
@@ -708,6 +709,7 @@ Func_4051e:
 	ld a, [hl]
 	and a
 	jr z, .asm_40528
+	; tick down
 	dec a
 	ld [hl], a
 	ret
@@ -715,7 +717,7 @@ Func_4051e:
 	ld a, [wc8d8]
 	ld l, a
 	ld h, $00
-	ld bc, $4559
+	ld bc, .Data_42559
 	add hl, bc
 	ld a, [hli]
 	cp $ff
@@ -725,7 +727,7 @@ Func_4051e:
 	add a
 	ld l, a
 	ld h, $00
-	ld bc, $4576
+	ld bc, .Data_42576
 	add hl, bc
 	ld a, [hli]
 	ld [wca16 + 0], a
@@ -733,16 +735,40 @@ Func_4051e:
 	ld [wca16 + 1], a
 	ld hl, wc8d8
 	ld a, [hl]
-	add $02
+	add $2
 	ld [hl], a
 	ret
 .asm_40553
 	xor a
 	ld [wc8d8], a
 	jr .asm_40528
-; 0x40559
 
-SECTION "Bank 10@4586", ROMX[$4586], BANK[$10]
+.Data_42559:
+	db $20, $00
+	db $01, $01
+	db $01, $02
+	db $01, $03
+	db $01, $04
+	db $02, $05
+	db $03, $06
+	db $08, $07
+	db $01, $06
+	db $01, $05
+	db $01, $04
+	db $01, $03
+	db $02, $02
+	db $03, $01
+	db $ff ; end
+
+.Data_42576:
+	dw $39f
+	dw $31b
+	dw $296
+	dw $212
+	dw $18d
+	dw $109
+	dw $084
+	dw $000
 
 Func_40586:
 	ld a, [wc83b]
@@ -1281,6 +1307,35 @@ Func_40907:
 	jr .asm_4092a
 ; 0x40959
 
+SECTION "Bank 10@4968", ROMX[$4968], BANK[$10]
+
+Func_40968:
+	call Func_42268
+	ld hl, wOpponentLifeGaugeTilemap
+	ld a, $00
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hl], a
+	ld hl, wOpponentLifeGaugeAttrmap
+	ld a, $03
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hl], a
+	ret
+; 0x40988
+
 SECTION "Bank 10@49b2", ROMX[$49b2], BANK[$10]
 
 Func_409b2:
@@ -1639,7 +1694,7 @@ BytesInDecimalRepresentation:
 SECTION "Bank 10@4e26", ROMX[$4e26], BANK[$10]
 
 Func_40e26:
-	ld hl, $cd40
+	ld hl, wcd40
 	ld a, [hl]
 	and a
 	ret z
@@ -1665,40 +1720,24 @@ Func_40e26:
 .asm_40e4d
 	ld hl, wc9fe
 .asm_40e50
-	ld de, $c4c5
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
+	ld de, wBGPals palette 6
+	REPT 1 palettes - 1
+		ld a, [hli]
+		ld [de], a
+		inc de
+	ENDR
 	ld a, [hli]
 	ld [de], a
 	ret
 
 Func_40e6b:
-	ld hl, $cd3e
+	ld hl, wcd3e
 	ld a, [hl]
 	and a
 	jr z, .asm_40e8e
 	call Func_40ec3
 	jr z, .asm_40e82
-	ld a, [$cd3f]
+	ld a, [wcd3f]
 	add [hl]
 	ldh [hWX], a
 	ld d, [hl]
@@ -1706,25 +1745,25 @@ Func_40e6b:
 	jr .asm_40e96
 .asm_40e82
 	xor a
-	ld [$cd3e], a
-	ld [$cd36], a
+	ld [wcd3e], a
+	ld [wcd36], a
 	ld de, NULL
 	jr .asm_40e96
 .asm_40e8e
-	ld a, [$cd3f]
+	ld a, [wcd3f]
 	ldh [hWX], a
 	ld de, NULL
 .asm_40e96
 	ret
 
 Func_40e97:
-	ld hl, $cd3e
+	ld hl, wcd3e
 	ld a, [hl]
 	and a
 	jr z, .asm_40eba
 	call Func_40ec3
 	jr z, .asm_40eae
-	ld a, [$cd3f]
+	ld a, [wcd3f]
 	add [hl]
 	ldh [hWX], a
 	ld d, [hl]
@@ -1732,12 +1771,12 @@ Func_40e97:
 	jr .asm_40ec2
 .asm_40eae
 	xor a
-	ld [$cd3e], a
-	ld [$cd36], a
+	ld [wcd3e], a
+	ld [wcd36], a
 	ld de, NULL
 	jr .asm_40ec2
 .asm_40eba
-	ld a, [$cd3f]
+	ld a, [wcd3f]
 	ldh [hWX], a
 	ld de, NULL
 .asm_40ec2
@@ -2322,7 +2361,7 @@ Func_411cc:
 	ld a, [hli]
 	ld b, [hl]
 	ld c, a
-	ld hl, $cd3c
+	ld hl, wcd3c
 	ld a, [hli]
 	sub c
 	ld a, [hld]
@@ -2343,7 +2382,7 @@ Func_411cc:
 	ld [hld], a
 	ld [hl], a
 .asm_411e9
-	ld hl, $cd38
+	ld hl, wcd38
 	ld a, [hl]
 	sub c
 	ld [hli], a
@@ -2355,7 +2394,7 @@ Func_411cc:
 	ld [hli], a
 	ld [hl], a
 .asm_411f7
-	ld hl, $cd38
+	ld hl, wcd38
 	ld a, [hli]
 	ld d, [hl]
 	ld e, a
@@ -2691,16 +2730,16 @@ Func_41d72:
 	inc a
 	jr .asm_41dfa
 .asm_41dcf
-	ld a, [wPdPBlock14Unk4]
+	ld a, [$d1a0]
 	jr .asm_41de1
 .asm_41dd4
-	ld a, [wPdPBlock14Unk5]
+	ld a, [$d1a1]
 	jr .asm_41de1
 .asm_41dd9
-	ld a, [wPdPBlock15Type]
+	ld a, [$d1a2]
 	jr .asm_41de1
 .asm_41dde
-	ld a, [wPdPBlock15Unk1]
+	ld a, [$d1a3]
 .asm_41de1
 	ld b, a
 	and $f0
@@ -2768,16 +2807,16 @@ Func_41d72:
 	inc a
 	jr .asm_41e85
 .asm_41e5a
-	ld a, [wPdPBlock16Type]
+	ld a, [$d1a8]
 	jr .asm_41e6c
 .asm_41e5f
-	ld a, [wPdPBlock16Unk1]
+	ld a, [$d1a9]
 	jr .asm_41e6c
 .asm_41e64
-	ld a, [wPdPBlock16Unk2]
+	ld a, [$d1aa]
 	jr .asm_41e6c
 .asm_41e69
-	ld a, [wPdPBlock16Unk3]
+	ld a, [$d1ab]
 .asm_41e6c
 	ld b, a
 	and $f0
@@ -2845,16 +2884,16 @@ Func_41d72:
 	inc a
 	jr .asm_41f10
 .asm_41ee5
-	ld a, [wPdPBlock17Unk2]
+	ld a, [$d1b0]
 	jr .asm_41ef7
 .asm_41eea
-	ld a, [wPdPBlock17Unk3]
+	ld a, [$d1b1]
 	jr .asm_41ef7
 .asm_41eef
-	ld a, [wPdPBlock17Unk4]
+	ld a, [$d1b2]
 	jr .asm_41ef7
 .asm_41ef4
-	ld a, [wPdPBlock17Unk5]
+	ld a, [$d1b3]
 .asm_41ef7
 	ld b, a
 	and $f0
@@ -2922,16 +2961,16 @@ Func_41d72:
 	inc a
 	jr .asm_41f9b
 .asm_41f70
-	ld a, [wPdPBlock18Unk4]
+	ld a, [$d1b8]
 	jr .asm_41f82
 .asm_41f75
-	ld a, [wPdPBlock18Unk5]
+	ld a, [$d1b9]
 	jr .asm_41f82
 .asm_41f7a
-	ld a, [wPdPBlock19Type]
+	ld a, [$d1ba]
 	jr .asm_41f82
 .asm_41f7f
-	ld a, [wPdPBlock19Unk1]
+	ld a, [$d1bb]
 .asm_41f82
 	ld b, a
 	and $f0
@@ -2999,16 +3038,16 @@ Func_41d72:
 	inc a
 	jr .asm_42026
 .asm_41ffb
-	ld a, [wPdPBlock1aType]
+	ld a, [$d1c0]
 	jr .asm_4200d
 .asm_42000
-	ld a, [wPdPBlock1aUnk1]
+	ld a, [$d1c1]
 	jr .asm_4200d
 .asm_42005
-	ld a, [wPdPBlock1aUnk2]
+	ld a, [$d1c2]
 	jr .asm_4200d
 .asm_4200a
-	ld a, [wPdPBlock1aUnk3]
+	ld a, [$d1c3]
 .asm_4200d
 	ld b, a
 	and $f0
@@ -3076,16 +3115,16 @@ Func_41d72:
 	inc a
 	jr .asm_420b1
 .asm_42086
-	ld a, [wPdPBlock1bUnk2]
+	ld a, [$d1c8]
 	jr .asm_42098
 .asm_4208b
-	ld a, [wPdPBlock1bUnk3]
+	ld a, [$d1c9]
 	jr .asm_42098
 .asm_42090
-	ld a, [wPdPBlock1bUnk4]
+	ld a, [$d1ca]
 	jr .asm_42098
 .asm_42095
-	ld a, [wPdPBlock1bUnk5]
+	ld a, [$d1cb]
 .asm_42098
 	ld b, a
 	and $f0
@@ -3153,16 +3192,16 @@ Func_41d72:
 	inc a
 	jr .asm_4213c
 .asm_42111
-	ld a, [wPdPBlock1cUnk4]
+	ld a, [$d1d0]
 	jr .asm_42123
 .asm_42116
-	ld a, [wPdPBlock1cUnk5]
+	ld a, [$d1d1]
 	jr .asm_42123
 .asm_4211b
-	ld a, [wPdPBlock1dType]
+	ld a, [$d1d2]
 	jr .asm_42123
 .asm_42120
-	ld a, [wPdPBlock1dUnk1]
+	ld a, [$d1d3]
 .asm_42123
 	ld b, a
 	and $f0
@@ -3230,16 +3269,16 @@ Func_41d72:
 	inc a
 	jr .asm_421c7
 .asm_4219c
-	ld a, [wPdPBlock1eType]
+	ld a, [$d1d8]
 	jr .asm_421ae
 .asm_421a1
-	ld a, [wPdPBlock1eUnk1]
+	ld a, [$d1d9]
 	jr .asm_421ae
 .asm_421a6
-	ld a, [wPdPBlock1eUnk2]
+	ld a, [$d1da]
 	jr .asm_421ae
 .asm_421ab
-	ld a, [wPdPBlock1eUnk3]
+	ld a, [$d1db]
 .asm_421ae
 	ld b, a
 	and $f0
@@ -3307,16 +3346,16 @@ Func_41d72:
 	inc a
 	jr .asm_42252
 .asm_42227
-	ld a, [wPdPBlock1fUnk2]
+	ld a, [$d1e0]
 	jr .asm_42239
 .asm_4222c
-	ld a, [wPdPBlock1fUnk3]
+	ld a, [$d1e1]
 	jr .asm_42239
 .asm_42231
-	ld a, [wPdPBlock1fUnk4]
+	ld a, [$d1e2]
 	jr .asm_42239
 .asm_42236
-	ld a, [wPdPBlock1fUnk5]
+	ld a, [$d1e3]
 .asm_42239
 	ld b, a
 	and $f0
@@ -3359,17 +3398,17 @@ Func_42256:
 Func_42268:
 	ld a, [wGameMode]
 	cp GAMEMODE_CHALLENGE
-	jr z, .asm_42279
+	jr z, .challenge
 	cp GAMEMODE_2P_VS
-	jr z, .asm_4227e
+	jr z, .2p_vs_or_line_clear
 	cp GAMEMODE_2P_LINE_CLEAR
-	jr z, .asm_4227e
+	jr z, .2p_vs_or_line_clear
 	jr .done
-.asm_42279
-	ld bc, $5c60
+.challenge
+	ld bc, Boards + BOARDSTRUCT_OPP_ATK_METER_TILEMAP
 	jr .asm_42281
-.asm_4227e
-	ld bc, $5c66
+.2p_vs_or_line_clear
+	ld bc, Boards + BOARDSTRUCT_2P_OPP_ATK_METER_TILEMAP
 .asm_42281
 	ld a, [wBoard]
 	ld l, a
@@ -3388,15 +3427,15 @@ Func_42268:
 	add hl, hl ; *138
 	pop bc
 	add hl, bc
-	ld a, $40
+	ld a, BANK(Boards)
 	call GetFarByte
 	inc hl
 	ld c, a
-	ld a, $40
+	ld a, BANK(Boards)
 	call GetFarByte
 	inc hl
 	ld b, a
-	ld a, $40
+	ld a, BANK(Boards)
 	call GetFarByte
 	inc hl
 	push hl
@@ -3406,15 +3445,15 @@ Func_42268:
 	ld bc, $e
 	call FarCopyHLtoDE
 	pop hl
-	ld a, $40
+	ld a, BANK(Boards)
 	call GetFarByte
 	inc hl
 	ld c, a
-	ld a, $40
+	ld a, BANK(Boards)
 	call GetFarByte
 	inc hl
 	ld b, a
-	ld a, $40
+	ld a, BANK(Boards)
 	call GetFarByte
 	inc hl
 	ld l, c
@@ -3635,9 +3674,44 @@ Func_423f1:
 	ld [wPlayerMonPortraitAnimTimer], a
 	ld [wOpponentMonPortraitAnimTimer], a
 	ret
-; 0x42411
 
-SECTION "Bank 10@647d", ROMX[$647d], BANK[$10]
+PortraitAnim_Idle:
+.loop
+	db $0, 10, $00
+	dbw $1, .loop
+
+SECTION "Bank 10@644a", ROMX[$644a], BANK[$10]
+
+Func_4244a:
+	push bc
+	ld a, [wOpponentMon]
+	ld l, a
+	ld h, $00
+	ld c, l
+	ld b, h
+	add hl, hl
+	add hl, bc
+	add hl, hl
+	add hl, hl
+	add hl, hl
+	add hl, hl
+	ld bc, PokemonData + PKMNSTRUCT_UNK15
+	add hl, bc
+	ld a, BANK(PokemonData)
+	call GetFarByte
+	inc hl
+	ld [wOpponentMonPortraitAnimPtr + 0], a
+	ld a, BANK(PokemonData)
+	call GetFarByte
+	inc hl
+	ld [wOpponentMonPortraitAnimPtr + 1], a
+	ld a, BANK(PokemonData)
+	call GetFarByte
+	ld [wc9b9], a
+	xor a
+	ld [wOpponentMonPortraitAnimTimer], a
+	pop bc
+	ret
 
 SetPlayerMonHurtAnimation:
 	push bc
@@ -3669,17 +3743,51 @@ SetPlayerMonHurtAnimation:
 	ld [wPlayerMonPortraitAnimTimer], a
 	pop bc
 	ret
-; 0x424b0
 
-SECTION "Bank 10@6411", ROMX[$6411], BANK[$10]
+SetEnemyMonHurtAnimation:
+	push bc
+	ld a, [wOpponentMon]
+	ld l, a
+	ld h, $00
+	ld c, l
+	ld b, h
+	add hl, hl
+	add hl, bc
+	add hl, hl
+	add hl, hl
+	add hl, hl
+	add hl, hl
+	ld bc, PokemonData + PKMNSTRUCT_HURT_ANIM
+	add hl, bc
+	ld a, BANK(PokemonData)
+	call GetFarByte
+	inc hl
+	ld [wOpponentMonPortraitAnimPtr + 0], a
+	ld a, BANK(PokemonData)
+	call GetFarByte
+	inc hl
+	ld [wOpponentMonPortraitAnimPtr + 1], a
+	ld a, BANK(PokemonData)
+	call GetFarByte
+	ld [wc9b9], a
+	xor a
+	ld [wOpponentMonPortraitAnimTimer], a
+	pop bc
+	ret
+; 0x424e3
 
-PortraitAnim_Idle:
+SECTION "Bank 10@6549", ROMX[$6549], BANK[$10]
+
+PortraitAnim_42549:
+	db $0, 10, $01
+	db $0,  6, $04
+	db $0, 10, $01
+	db $0,  6, $04
+	db $0, 10, $01
+	db $0,  6, $04
 .loop
-	db $0, 10, $00
+	db $0, 10, $01
 	dbw $1, .loop
-; 0x42579
-
-SECTION "Bank 10@6561", ROMX[$6561], BANK[$10]
 
 PortraitAnim_Hurt:
 	db $0, 20, $01
@@ -3691,4 +3799,639 @@ PortraitAnim_Hurt:
 .loop
 	db $0, 10, $00
 	dbw $1, .loop
-; 0x42579
+
+PortraitAnim_42579:
+	db $0, 12, $02
+	db $0, 30, $03
+.loop
+	db $0, 10, $00
+	dbw $1, .loop
+
+PortraitAnim_42585:
+	db $0, 17, $02
+	db $0, 13, $03
+.loop
+	db $0, 10, $00
+	dbw $1, .loop
+
+PortraitAnim_42591:
+	db $0, 12, $02
+	db $0, 30, $03
+.loop
+	db $0, 10, $00
+	dbw $1, .loop
+
+PortraitAnim_4259d:
+	db $0, 14, $02
+	db $0,  3, $00
+	db $0, 30, $03
+.loop
+	db $0, 10, $00
+	dbw $1, .loop
+
+PortraitAnim_425ac:
+	db $0, 20, $02
+	db $0, 32, $03
+.loop
+	db $0, 10, $00
+	dbw $1, .loop
+
+PortraitAnim_425b8:
+	db $0, 16, $02
+	db $0, 25, $03
+.loop
+	db $0, 10, $00
+	dbw $1, .loop
+
+PortraitAnim_425c4:
+	db $0, 25, $02
+	db $0, 30, $03
+.loop
+	db $0, 10, $00
+	dbw $1, .loop
+
+PortraitAnim_425d0:
+	db $0, 22, $02
+	db $0, 35, $03
+.loop
+	db $0, 10, $00
+	dbw $1, .loop
+
+PortraitAnim_425dc:
+	db $0, 20, $02
+	db $0, 28, $03
+.loop
+	db $0, 10, $00
+	dbw $1, .loop
+
+PortraitAnim_425e8:
+	db $0, 16, $02
+	db $0, 20, $03
+.loop
+	db $0, 10, $00
+	dbw $1, .loop
+
+PortraitAnim_425f4:
+	db $0, 20, $02
+	db $0, 28, $03
+.loop
+	db $0, 10, $00
+	dbw $1, .loop
+
+PortraitAnim_42600:
+	db $0, 20, $02
+	db $0, 26, $03
+.loop
+	db $0, 10, $00
+	dbw $1, .loop
+
+PortraitAnim_4260c:
+	db $0, 20, $02
+	db $0, 28, $03
+.loop
+	db $0, 10, $00
+	dbw $1, .loop
+
+PortraitAnim_42618:
+	db $0, 20, $02
+	db $0, 26, $03
+.loop
+	db $0, 10, $00
+	dbw $1, .loop
+
+PortraitAnim_42624:
+	db $0, 20, $02
+	db $0, 26, $03
+.loop
+	db $0, 10, $00
+	dbw $1, .loop
+
+PortraitAnim_42630:
+	db $0, 20, $02
+	db $0, 26, $03
+.loop
+	db $0, 10, $00
+	dbw $1, .loop
+
+PortraitAnim_4263c:
+	db $0, 20, $02
+	db $0, 30, $03
+.loop
+	db $0, 10, $00
+	dbw $1, .loop
+
+PortraitAnim_42648:
+	db $0, 24, $02
+	db $0, 30, $03
+.loop
+	db $0, 10, $00
+	dbw $1, .loop
+
+PortraitAnim_42654:
+	db $0, 21, $02
+	db $0, 22, $03
+.loop
+	db $0, 10, $00
+	dbw $1, .loop
+
+PortraitAnim_42660:
+	db $0, 25, $02
+	db $0, 30, $03
+.loop
+	db $0, 10, $00
+	dbw $1, .loop
+
+PortraitAnim_4266c:
+	db $0, 20, $02
+	db $0, 20, $03
+.loop
+	db $0, 10, $00
+	dbw $1, .loop
+
+PortraitAnim_42678:
+	db $0, 25, $02
+	db $0, 30, $03
+.loop
+	db $0, 10, $00
+	dbw $1, .loop
+
+PortraitAnim_42684:
+	db $0, 25, $02
+	db $0, 30, $03
+.loop
+	db $0, 10, $00
+	dbw $1, .loop
+
+PortraitAnim_42690:
+	db $0, 22, $02
+	db $0, 22, $03
+.loop
+	db $0, 10, $00
+	dbw $1, .loop
+
+PortraitAnim_4269c:
+	db $0, 25, $02
+	db $0, 30, $03
+.loop
+	db $0, 10, $00
+	dbw $1, .loop
+
+PortraitAnim_426a8:
+	db $0, 20, $02
+	db $0, 28, $03
+.loop
+	db $0, 10, $00
+	dbw $1, .loop
+
+PortraitAnim_426b4:
+	db $0, 25, $02
+	db $0, 30, $03
+.loop
+	db $0, 10, $00
+	dbw $1, .loop
+
+PortraitAnim_426c0:
+	db $0, 25, $02
+	db $0, 30, $03
+.loop
+	db $0, 10, $00
+	dbw $1, .loop
+
+PortraitAnim_426cc:
+	db $0, 25, $02
+	db $0, 30, $03
+.loop
+	db $0, 10, $00
+	dbw $1, .loop
+
+PortraitAnim_426d8:
+	db $0, 25, $02
+	db $0, 30, $03
+.loop
+	db $0, 10, $00
+	dbw $1, .loop
+
+PortraitAnim_426e4:
+	db $0, 25, $02
+	db $0, 30, $03
+.loop
+	db $0, 10, $00
+	dbw $1, .loop
+
+PortraitAnim_426f0:
+	db $0, 25, $02
+	db $0, 30, $03
+.loop
+	db $0, 10, $00
+	dbw $1, .loop
+
+PortraitAnim_426fc:
+	db $0, 24, $02
+	db $0, 28, $03
+.loop
+	db $0, 10, $00
+	dbw $1, .loop
+
+PortraitAnim_42708:
+	db $0, 25, $02
+	db $0, 30, $03
+.loop
+	db $0, 10, $00
+	dbw $1, .loop
+
+PortraitAnim_42714:
+	db $0, 22, $02
+	db $0, 30, $03
+.loop
+	db $0, 10, $00
+	dbw $1, .loop
+
+PortraitAnim_42720:
+	db $0, 20, $02
+	db $0, 28, $03
+.loop
+	db $0, 10, $00
+	dbw $1, .loop
+
+PortraitAnim_4272c:
+	db $0, 18, $02
+	db $0, 28, $03
+.loop
+	db $0, 10, $00
+	dbw $1, .loop
+; 0x42738
+
+SECTION "Bank 10@67bd", ROMX[$67bd], BANK[$10]
+
+PortraitAnim_427bd:
+.loop
+	db $0, 14, $02
+	db $0, 21, $03
+	dbw $1, .loop
+
+PortraitAnim_427c6:
+.loop
+	db $0, 14, $02
+	db $0, 14, $03
+	dbw $1, .loop
+
+PortraitAnim_427cf:
+.loop
+	db $0,  8, $02
+	db $0,  8, $03
+	dbw $1, .loop
+
+PortraitAnim_427d8:
+.loop
+	db $0,  7, $02
+	db $0,  7, $03
+	dbw $1, .loop
+
+PortraitAnim_427e1:
+.loop
+	db $0, 12, $02
+	db $0, 12, $03
+	dbw $1, .loop
+
+PortraitAnim_427ea:
+.loop
+	db $0, 17, $02
+	db $0, 22, $03
+	dbw $1, .loop
+
+PortraitAnim_427f3:
+.loop
+	db $0,  6, $02
+	db $0,  6, $03
+	dbw $1, .loop
+
+PortraitAnim_427fc:
+.loop
+	db $0, 30, $02
+	db $0, 23, $03
+	dbw $1, .loop
+
+PortraitAnim_42805:
+.loop
+	db $0,  6, $02
+	db $0,  6, $03
+	dbw $1, .loop
+
+PortraitAnim_4280e:
+.loop
+	db $0, 30, $02
+	db $0, 23, $03
+	dbw $1, .loop
+
+PortraitAnim_42817:
+.loop
+	db $0, 12, $02
+	db $0, 16, $03
+	dbw $1, .loop
+
+PortraitAnim_42820:
+.loop
+	db $0, 16, $02
+	db $0, 18, $03
+	dbw $1, .loop
+
+PortraitAnim_42829:
+.loop
+	db $0, 14, $02
+	db $0,  7, $03
+	dbw $1, .loop
+
+PortraitAnim_42832:
+.loop
+	db $0, 14, $02
+	db $0,  8, $03
+	dbw $1, .loop
+
+PortraitAnim_4283b:
+.loop
+	db $0, 14, $02
+	db $0, 14, $03
+	dbw $1, .loop
+
+PortraitAnim_42844:
+.loop
+	db $0, 10, $02
+	db $0, 10, $03
+	dbw $1, .loop
+
+PortraitAnim_4284d:
+.loop
+	db $0,  6, $02
+	db $0,  6, $03
+	dbw $1, .loop
+
+PortraitAnim_42856:
+.loop
+	db $0, 30, $02
+	db $0, 23, $03
+	dbw $1, .loop
+
+PortraitAnim_4285f:
+.loop
+	db $0, 10, $02
+	db $0, 14, $03
+	dbw $1, .loop
+
+PortraitAnim_42868:
+.loop
+	db $0, 10, $02
+	db $0, 10, $03
+	dbw $1, .loop
+
+PortraitAnim_42871:
+.loop
+	db $0, 16, $02
+	db $0, 16, $03
+	dbw $1, .loop
+
+PortraitAnim_4287a:
+.loop
+	db $0, 26, $02
+	db $0, 26, $03
+	dbw $1, .loop
+
+PortraitAnim_42883:
+.loop
+	db $0, 16, $02
+	db $0, 16, $03
+	dbw $1, .loop
+
+PortraitAnim_4288c:
+.loop
+	db $0, 16, $02
+	db $0, 16, $03
+	dbw $1, .loop
+
+PortraitAnim_42895:
+.loop
+	db $0, 12, $02
+	db $0,  8, $03
+	dbw $1, .loop
+
+PortraitAnim_4289e:
+.loop
+	db $0, 15, $02
+	db $0, 15, $03
+	dbw $1, .loop
+
+PortraitAnim_428a7:
+.loop
+	db $0, 12, $02
+	db $0, 14, $03
+	dbw $1, .loop
+
+PortraitAnim_428b0:
+.loop
+	db $0, 12, $02
+	db $0, 12, $03
+	dbw $1, .loop
+
+PortraitAnim_428b9:
+.loop
+	db $0, 14, $02
+	db $0, 12, $03
+	dbw $1, .loop
+
+PortraitAnim_428c2:
+.loop
+	db $0, 12, $02
+	db $0, 14, $03
+	dbw $1, .loop
+
+PortraitAnim_428cb:
+.loop
+	db $0, 26, $02
+	db $0, 16, $03
+	dbw $1, .loop
+
+PortraitAnim_428d4:
+.loop
+	db $0, 20, $02
+	db $0, 20, $03
+	dbw $1, .loop
+
+PortraitAnim_428dd:
+.loop
+	db $0, 16, $02
+	db $0, 14, $03
+	dbw $1, .loop
+
+PortraitAnim_428e6:
+.loop
+	db $0, 14, $02
+	db $0, 14, $03
+	dbw $1, .loop
+
+PortraitAnim_428ef:
+.loop
+	db $0, 16, $02
+	db $0, 25, $03
+	dbw $1, .loop
+
+PortraitAnim_428f8:
+.loop
+	db $0, 16, $02
+	db $0, 26, $03
+	dbw $1, .loop
+
+PortraitAnim_42901:
+.loop
+	db $0, 20, $02
+	db $0, 22, $03
+	dbw $1, .loop
+
+PortraitAnim_4290a:
+.loop
+	db $0, 16, $02
+	db $0, 24, $03
+	dbw $1, .loop
+
+PortraitAnim_42913:
+.loop
+	db $0, 18, $02
+	db $0, 18, $03
+	dbw $1, .loop
+
+PortraitAnim_4291c:
+.loop
+	db $0, 18, $02
+	db $0, 18, $03
+	dbw $1, .loop
+
+PortraitAnim_42925:
+.loop
+	db $0, 20, $02
+	db $0, 25, $03
+	dbw $1, .loop
+
+PortraitAnim_4292e:
+.loop
+	db $0, 16, $02
+	db $0, 14, $03
+	dbw $1, .loop
+
+PortraitAnim_42937:
+.loop
+	db $0, 18, $02
+	db $0, 18, $03
+	dbw $1, .loop
+
+PortraitAnim_42940:
+.loop
+	db $0, 22, $02
+	db $0, 27, $03
+	dbw $1, .loop
+
+PortraitAnim_42949:
+.loop
+	db $0, 20, $02
+	db $0, 14, $03
+	dbw $1, .loop
+
+PortraitAnim_42952:
+.loop
+	db $0, 14, $02
+	db $0, 14, $03
+	dbw $1, .loop
+
+PortraitAnim_4295b:
+.loop
+	db $0, 17, $02
+	db $0, 14, $03
+	dbw $1, .loop
+
+PortraitAnim_42964:
+.loop
+	db $0, 11, $02
+	db $0, 12, $03
+	dbw $1, .loop
+
+PortraitAnim_4296d:
+.loop
+	db $0, 20, $02
+	db $0, 22, $03
+	dbw $1, .loop
+
+PortraitAnim_42976:
+.loop
+	db $0, 12, $02
+	db $0, 12, $03
+	dbw $1, .loop
+
+PortraitAnim_4297f:
+.loop
+	db $0, 18, $02
+	db $0, 24, $03
+	dbw $1, .loop
+
+PortraitAnim_42988:
+.loop
+	db $0, 18, $02
+	db $0, 18, $03
+	dbw $1, .loop
+
+PortraitAnim_42991:
+.loop
+	db $0, 22, $02
+	db $0, 22, $03
+	dbw $1, .loop
+
+PortraitAnim_4299a:
+.loop
+	db $0, 14, $02
+	db $0, 22, $03
+	dbw $1, .loop
+
+PortraitAnim_429a3:
+.loop
+	db $0, 20, $02
+	db $0, 28, $03
+	dbw $1, .loop
+
+PortraitAnim_429ac:
+.loop
+	db $0, 14, $02
+	db $0, 10, $03
+	dbw $1, .loop
+
+PortraitAnim_429b5:
+.loop
+	db $0, 22, $02
+	db $0, 30, $03
+	dbw $1, .loop
+
+PortraitAnim_429be:
+.loop
+	db $0, 14, $02
+	db $0, 14, $03
+	dbw $1, .loop
+
+PortraitAnim_429c7:
+.loop
+	db $0, 16, $02
+	db $0, 16, $03
+	dbw $1, .loop
+
+PortraitAnim_429d0:
+.loop
+	db $0, 16, $02
+	db $0, 16, $03
+	dbw $1, .loop
+
+PortraitAnim_429d9:
+.loop
+	db $0, 16, $02
+	db $0, 16, $03
+	dbw $1, .loop
+
+PortraitAnim_429e2:
+.loop
+	db $0, 16, $02
+	db $0, 16, $03
+	dbw $1, .loop
+; 0x429eb

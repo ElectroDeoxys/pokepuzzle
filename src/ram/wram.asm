@@ -62,7 +62,11 @@ wPalettes::
 wBGPals:: ds 8 palettes ; c495
 wOBPals:: ds 8 palettes ; c4d5
 
-	ds $c59e - $c515
+	ds $c51a - $c515
+
+wc51a:: ds 3 palettes ; c51a
+
+	ds $c59e - $c532
 
 wc59e:: ds 1 ; c59e
 
@@ -326,9 +330,9 @@ wRNG2:: ds 1 ; c83d
 wScore:: ds 3 ; c842
 	ds $c864 - $c845
 wc864:: ds 1 ; c864
-wc865:: ds 1 ; c865
-wc866:: ds 1 ; c866
-wc867:: ds 1 ; c867
+wCursorX:: ds 1 ; c865
+wCursorY:: ds 1 ; c866
+wCursorCounter:: ds 1 ; c867
 wc868:: ds 1 ; c868
 wc869:: ds 1 ; c869
 wc86a:: ds 1 ; c86a
@@ -531,14 +535,17 @@ wOpponentMonPortraitAnimTimer:: ds 1 ; c9ba
 wc9bb:: ds 1 ; c9bb
 wc9bc:: ds 1 ; c9bc
 wc9bd:: ds 1 ; c9bd
-	ds $c9e6 - $c9be
+
+wc9be:: ds 1 palettes ; c9be
+wc9c6:: ds 1 palettes ; c9c6
+wc9ce:: ds 1 palettes ; c9ce
+	ds $c9e6 - $c9d6
 wc9e6:: ds 1 palettes ; c9e6
 wc9ee:: ds 1 palettes ; c9ee
 	ds $c9fe - $c9f6
-wc9fe:: ds 8 ; c9fe
+wc9fe:: ds 1 palettes ; c9fe
 wca06:: ds 1 palettes ; ca06
-
-	ds $ca16 - $ca0e
+wca0e:: ds 1 palettes ; ca0e
 
 wca16:: ds 2 ; ca16
 
@@ -574,7 +581,8 @@ wcad7:: ds 1 ; cad7
 wcad8:: ds 1 ; cad8
 wcad9:: ds 1 ; cad9
 wcada:: ds 1 ; cada
-	ds $cade - $cadb
+wcadb:: ds 2 ; cadb
+	ds $cade - $cadd
 wcade:: ds 1 ; cade
 wcadf:: ds 1 ; cadf
 wcae0:: ds 1 ; cae0
@@ -585,7 +593,14 @@ wcae6:: ds 1 ; cae6
 wcae7:: ds 1 ; cae7
 wcae8:: ds 1 ; cae8
 
-	ds $ccb3 - $cae9
+	ds $cbeb - $cae9
+
+wcbeb:: ds 1 ; cbeb
+wcbec:: ds 2 ; cbec
+wcbee:: ds 2 ; cbee
+wcbf0:: ds 1 ; cbf0
+
+	ds $ccb3 - $cbf1
 
 wccb3:: ds 9 ; ccb3
 
@@ -630,8 +645,19 @@ wcd31:: ds 1 ; cd31
 wcd32:: ds 1 ; cd32
 	ds $cd34 - $cd33
 wcd34:: ds 1 ; cd34
+wcd35:: ds 1 ; cd35
+wcd36:: ds 1 ; cd36
+wcd37:: ds 1 ; cd37
 
-	ds $cd42 - $cd35
+wcd38:: ds 2 ; cd38
+wcd3a:: ds 2 ; cd3a
+wcd3c:: ds 2 ; cd3c
+
+wcd3e:: ds 1 ; cd3e
+wcd3f:: ds 1 ; cd3f
+
+wcd40:: ds 1 ; cd40
+wcd41:: ds 1 ; cd41
 
 wcd42:: ds 2 ; cd42
 wcd44:: ds 2 ; cd44
@@ -648,7 +674,9 @@ wcd70:: ds 1 ; cd70
 wcd71:: ds 1 ; cd71
 wcd72:: ds 1 ; cd72
 wcd73:: ds 1 ; cd73
-	ds $cdad - $cd74
+	ds $cdab - $cd74
+wcdab:: ds 1 ; cdab
+	ds $1
 wcdad:: ds 2 ; cdad
 wcdaf:: ds 1 ; cdaf
 wcdb0:: ds 1 ; cdb0
@@ -800,8 +828,8 @@ wcec4:: ds 1 ; cec4
 wcec5:: ds 7 ; cec5
 wcecc:: ds 7 ; cecc
 
-wCursorX:: ds 1 ; ced3
-wCursorY:: ds 1 ; ced4
+wPdPCursorX:: ds 1 ; ced3
+wPdPCursorY:: ds 1 ; ced4
 wced5:: ds 1 ; ced5
 wced6:: ds 1 ; ced6
 wced7:: ds 1 ; ced7
@@ -963,7 +991,13 @@ w1dd85:: ds 1 ; dd85
 
 SECTION "WRAM2", WRAMX
 
-	ds $da80 - $d000
+w2d000:: ds 3 palettes ; d000
+
+	ds $d0c0 - $d018
+
+w2d0c0:: ds 3 palettes ; d0c0
+
+	ds $da80 - $d0d8
 
 w2da80:: ; da80
 	ds $60
@@ -1040,14 +1074,29 @@ w6d058:: ds BOARD_VIRTUAL_AREA ; d058
 
 w6d0b0:: ds BOARD_VIRTUAL_AREA ; d0b0
 
-	ds $d150 - $d100
+w6d100:: ds BOARD_VIRTUAL_AREA ; d100
 
 w6d150:: ds BOARD_VIRTUAL_AREA ; d150
 
-	ds $d300 - $d1a0
+w6d1a0:: ds BOARD_VIRTUAL_AREA ; d1a0
+
+	ds $d300 - $d1f0
+
+UNION
+	ds $100
+
+w6d400:: ds BOARD_VIRTUAL_AREA ; d400
+	
+	ds $d580 - $d450
+
+w6d580:: ds BOARD_VIRTUAL_AREA ; d580
+
+NEXTU
 
 w6d300:: ; d300
-	ds $300
+	ds $30 tiles
+
+ENDU
 
 	ds $d820 - $d600
 

@@ -36,6 +36,22 @@ DEF BLOCK_STRUCT_SIZE EQU _RS
 	const BLOCK_0D       ; $0d
 	const BLOCK_0E       ; $0e
 	const BLOCK_0F       ; $0f
+	const BLOCK_10       ; $10
+	const BLOCK_11       ; $11
+	const BLOCK_12       ; $12
+	const BLOCK_13       ; $13
+	const BLOCK_14       ; $14
+	const BLOCK_15       ; $15
+	const BLOCK_16       ; $16
+	const BLOCK_17       ; $17
+	const BLOCK_18       ; $18
+	const BLOCK_19       ; $19
+	const BLOCK_1A       ; $1a
+	const BLOCK_1B       ; $1b
+	const BLOCK_1C       ; $1c
+	const BLOCK_1D       ; $1d
+	const BLOCK_1E       ; $1e
+	const BLOCK_1F       ; $1f
 	const BLOCK_20       ; $20
 	const BLOCK_21       ; $21
 	const BLOCK_22       ; $22
@@ -63,22 +79,6 @@ DEF BLOCK_STRUCT_SIZE EQU _RS
 	const BLOCK_38       ; $38
 	const BLOCK_39       ; $39
 	const BLOCK_3A       ; $3a
-	const BLOCK_3B       ; $3b
-	const BLOCK_3C       ; $3c
-	const BLOCK_3D       ; $3d
-	const BLOCK_3E       ; $3e
-	const BLOCK_3F       ; $3f
-	const BLOCK_40       ; $40
-	const BLOCK_41       ; $41
-	const BLOCK_42       ; $42
-	const BLOCK_43       ; $43
-	const BLOCK_44       ; $44
-	const BLOCK_45       ; $45
-	const BLOCK_46       ; $46
-	const BLOCK_47       ; $47
-	const BLOCK_48       ; $48
-	const BLOCK_49       ; $49
-	const BLOCK_4A       ; $4a
 
 	const_def
 	const GAMEMODE_MARATHON      ; $0

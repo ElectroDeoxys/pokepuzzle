@@ -1300,7 +1300,7 @@ Func_967::
 	ret
 
 ; performs a general HDMA from hl to de,
-; with (c + 1) bytes
+; with (c + 1) tiles
 GeneralHDMA::
 	ld a, h
 	ldh [rVDMA_SRC_HIGH], a
@@ -2898,7 +2898,7 @@ FarGeneralHDMA::
 	call Bankswitch
 	ret
 
-Func_19bc::
+JpDoFrame::
 	jp DoFrame
 
 Func_19bf::
@@ -3306,7 +3306,7 @@ Func_1cd6::
 	ld [rROMB0 + $100], a
 	ld a, $01
 	vramswitch
-	ld hl, rHDMA1
+	ld hl, rVDMA_SRC_HIGH
 	ld a, b
 	ld [hli], a
 	ld a, c
@@ -3510,7 +3510,7 @@ UpdateRNG::
 
 ; the RNG engine, increments wRNG1 (up to $7ff)
 ; when this value wraps around, [wRNG2] is incremented
-; output is a = RandomSamples[wRNG1] + wRNG2
+; output is a = RandomTable[wRNG1] + wRNG2
 Random::
 	push bc
 	push de
@@ -3531,10 +3531,10 @@ Random::
 .no_wrap
 	ldh a, [hROMBank]
 	ld d, a
-	ld a, BANK(RandomSamples)
+	ld a, BANK(RandomTable)
 	bankswitch
-	ld a, [hl]
-	ld hl, RandomSamples
+	ld a, [hl] ; wRNG2
+	ld hl, RandomTable
 	add hl, bc
 	add [hl]
 	ld e, a
@@ -3688,6 +3688,7 @@ Func_1ff0::
 	ld [hl], a
 	ret
 
+; adds a to wcae2
 .Func_2070
 	ld hl, wcae2
 	add [hl]

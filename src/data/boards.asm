@@ -11,10 +11,10 @@ Boards:
 	; BOARD_NORMAL
 	dab Pals_11bc37 ; palettes
 	dwb $4000, $4e ; background pattern gfx
-	dwb $796d, $46 ; ?
-	dwb $797b, $46 ; ?
-	dwb $7a63, $46 ; ?
-	dwb $7a71, $46 ; ?
+	dwb $796d, $46 ; opponent atk meter tilemap (challenge mode)
+	dwb $797b, $46 ; opponent atk meter attrmap (challenge mode)
+	dwb $7a63, $46 ; opponent atk meter tilemap (2P mode)
+	dwb $7a71, $46 ; opponent atk meter attrmap (2P mode)
 
 	board_game_mode $703a, $46, NULL,  $00, $76c9, $46, $7746, $46 ; GAMEMODE_MARATHON
 	board_game_mode $703a, $46, NULL,  $00, $76c9, $46, $7746, $46 ; GAMEMODE_TIME_ZONE
@@ -31,10 +31,10 @@ Boards:
 	; BOARD_FIRE
 	dab Pals_11a3e9 ; palettes
 	dwb $415e, $4e ; background pattern gfx
-	dwb $6113, $46 ; ?
-	dwb $6121, $46 ; ?
-	dwb $621c, $46 ; ?
-	dwb $622a, $46 ; ?
+	dwb $6113, $46 ; opponent atk meter tilemap (challenge mode)
+	dwb $6121, $46 ; opponent atk meter attrmap (challenge mode)
+	dwb $621c, $46 ; opponent atk meter tilemap (2P mode)
+	dwb $622a, $46 ; opponent atk meter attrmap (2P mode)
 
 	board_game_mode $57f6, $46, NULL,  $00, $5e7d, $46, $5f04, $46 ; GAMEMODE_MARATHON
 	board_game_mode $57f6, $46, NULL,  $00, $5e7d, $46, $5f04, $46 ; GAMEMODE_TIME_ZONE
@@ -51,10 +51,10 @@ Boards:
 	; BOARD_WATER
 	dab Pals_e738b ; palettes
 	dwb $42c3, $4e ; background pattern gfx
-	dwb $6bf1, $37 ; ?
-	dwb $6c0d, $37 ; ?
-	dwb $6bff, $37 ; ?
-	dwb $6c1b, $37 ; ?
+	dwb $6bf1, $37 ; opponent atk meter tilemap (challenge mode)
+	dwb $6c0d, $37 ; opponent atk meter attrmap (challenge mode)
+	dwb $6bff, $37 ; opponent atk meter tilemap (2P mode)
+	dwb $6c1b, $37 ; opponent atk meter attrmap (2P mode)
 
 	board_game_mode $5f72, $48, NULL,  $00, $544c, $3a, $54d6, $3a ; GAMEMODE_MARATHON
 	board_game_mode $5f72, $48, NULL,  $00, $544c, $3a, $54d6, $3a ; GAMEMODE_TIME_ZONE
@@ -71,10 +71,10 @@ Boards:
 	; BOARD_ELECTRIC
 	dab Pals_118b56 ; palettes
 	dwb $43ca, $4e ; background pattern gfx
-	dwb $4871, $46 ; ?
-	dwb $487f, $46 ; ?
-	dwb $4983, $46 ; ?
-	dwb $4991, $46 ; ?
+	dwb $4871, $46 ; opponent atk meter tilemap (challenge mode)
+	dwb $487f, $46 ; opponent atk meter attrmap (challenge mode)
+	dwb $4983, $46 ; opponent atk meter tilemap (2P mode)
+	dwb $4991, $46 ; opponent atk meter attrmap (2P mode)
 
 	board_game_mode $4000, $46, NULL,  $00, $45cc, $46, $4654, $46 ; GAMEMODE_MARATHON
 	board_game_mode $4000, $46, NULL,  $00, $45cc, $46, $4654, $46 ; GAMEMODE_TIME_ZONE
@@ -91,10 +91,10 @@ Boards:
 	; BOARD_GRASS
 	dab Pals_e735b ; palettes
 	dwb $44ed, $4e ; background pattern gfx
-	dwb $6b81, $37 ; ?
-	dwb $6b9d, $37 ; ?
-	dwb $6b8f, $37 ; ?
-	dwb $6bab, $37 ; ?
+	dwb $6b81, $37 ; opponent atk meter tilemap (challenge mode)
+	dwb $6b9d, $37 ; opponent atk meter attrmap (challenge mode)
+	dwb $6b8f, $37 ; opponent atk meter tilemap (2P mode)
+	dwb $6bab, $37 ; opponent atk meter attrmap (2P mode)
 
 	board_game_mode $54b9, $48, NULL,  $00, $4a59, $3a, $4ae7, $3a ; GAMEMODE_MARATHON
 	board_game_mode $54b9, $48, NULL,  $00, $4a59, $3a, $4ae7, $3a ; GAMEMODE_TIME_ZONE
@@ -111,10 +111,10 @@ Boards:
 	; BOARD_FIGHTING
 	dab Pals_116726 ; palettes
 	dwb $464b, $4e ; background pattern gfx
-	dwb $6477, $45 ; ?
-	dwb $6485, $45 ; ?
-	dwb $6574, $45 ; ?
-	dwb $6582, $45 ; ?
+	dwb $6477, $45 ; opponent atk meter tilemap (challenge mode)
+	dwb $6485, $45 ; opponent atk meter attrmap (challenge mode)
+	dwb $6574, $45 ; opponent atk meter tilemap (2P mode)
+	dwb $6582, $45 ; opponent atk meter attrmap (2P mode)
 
 	board_game_mode $5c30, $45, NULL,  $00, $61f5, $45, $6276, $45 ; GAMEMODE_MARATHON
 	board_game_mode $5c30, $45, NULL,  $00, $61f5, $45, $6276, $45 ; GAMEMODE_TIME_ZONE
@@ -131,10 +131,10 @@ Boards:
 	; BOARD_POISON
 	dab Pals_1197e6 ; palettes
 	dwb $47a7, $4e ; background pattern gfx
-	dwb $5511, $46 ; ?
-	dwb $551f, $46 ; ?
-	dwb $5609, $46 ; ?
-	dwb $5617, $46 ; ?
+	dwb $5511, $46 ; opponent atk meter tilemap (challenge mode)
+	dwb $551f, $46 ; opponent atk meter attrmap (challenge mode)
+	dwb $5609, $46 ; opponent atk meter tilemap (2P mode)
+	dwb $5617, $46 ; opponent atk meter attrmap (2P mode)
 
 	board_game_mode $4b66, $46, NULL,  $00, $5263, $46, $52f1, $46 ; GAMEMODE_MARATHON
 	board_game_mode $4b66, $46, NULL,  $00, $5263, $46, $52f1, $46 ; GAMEMODE_TIME_ZONE
@@ -151,10 +151,10 @@ Boards:
 	; BOARD_FLYING
 	dab Pals_e733b ; palettes
 	dwb $490a, $4e ; background pattern gfx
-	dwb $6b11, $37 ; ?
-	dwb $6b2d, $37 ; ?
-	dwb $6b1f, $37 ; ?
-	dwb $6b3b, $37 ; ?
+	dwb $6b11, $37 ; opponent atk meter tilemap (challenge mode)
+	dwb $6b2d, $37 ; opponent atk meter attrmap (challenge mode)
+	dwb $6b1f, $37 ; opponent atk meter tilemap (2P mode)
+	dwb $6b3b, $37 ; opponent atk meter attrmap (2P mode)
 
 	board_game_mode $46bb, $48, NULL,  $00, $4000, $3a, $4086, $3a ; GAMEMODE_MARATHON
 	board_game_mode $46bb, $48, NULL,  $00, $4000, $3a, $4086, $3a ; GAMEMODE_TIME_ZONE
@@ -171,10 +171,10 @@ Boards:
 	; BOARD_PSYCHIC
 	dab Pals_11b02a ; palettes
 	dwb $4a3d, $4e ; background pattern gfx
-	dwb $6d4d, $46 ; ?
-	dwb $6d5b, $46 ; ?
-	dwb $6e49, $46 ; ?
-	dwb $6e57, $46 ; ?
+	dwb $6d4d, $46 ; opponent atk meter tilemap (challenge mode)
+	dwb $6d5b, $46 ; opponent atk meter attrmap (challenge mode)
+	dwb $6e49, $46 ; opponent atk meter tilemap (2P mode)
+	dwb $6e57, $46 ; opponent atk meter attrmap (2P mode)
 
 	board_game_mode $63f9, $46, NULL,  $00, $6aa4, $46, $6b2c, $46 ; GAMEMODE_MARATHON
 	board_game_mode $63f9, $46, NULL,  $00, $6aa4, $46, $6b2c, $46 ; GAMEMODE_TIME_ZONE
@@ -191,10 +191,10 @@ Boards:
 	; BOARD_BUG
 	dab Pals_114e15 ; palettes
 	dwb $4b23, $4e ; background pattern gfx
-	dwb $4b1a, $45 ; ?
-	dwb $4b28, $45 ; ?
-	dwb $4c22, $45 ; ?
-	dwb $4c30, $45 ; ?
+	dwb $4b1a, $45 ; opponent atk meter tilemap (challenge mode)
+	dwb $4b28, $45 ; opponent atk meter attrmap (challenge mode)
+	dwb $4c22, $45 ; opponent atk meter tilemap (2P mode)
+	dwb $4c30, $45 ; opponent atk meter attrmap (2P mode)
 
 	board_game_mode $4000, $45, NULL,  $00, $484f, $45, $48d9, $45 ; GAMEMODE_MARATHON
 	board_game_mode $4000, $45, NULL,  $00, $484f, $45, $48d9, $45 ; GAMEMODE_TIME_ZONE
@@ -211,10 +211,10 @@ Boards:
 	; BOARD_GHOST
 	dab Pals_115c20 ; palettes
 	dwb $4c7d, $4e ; background pattern gfx
-	dwb $5884, $45 ; ?
-	dwb $5892, $45 ; ?
-	dwb $597d, $45 ; ?
-	dwb $598b, $45 ; ?
+	dwb $5884, $45 ; opponent atk meter tilemap (challenge mode)
+	dwb $5892, $45 ; opponent atk meter attrmap (challenge mode)
+	dwb $597d, $45 ; opponent atk meter tilemap (2P mode)
+	dwb $598b, $45 ; opponent atk meter attrmap (2P mode)
 
 	board_game_mode $4e25, $45, NULL,  $00, $55f0, $45, $5672, $45 ; GAMEMODE_MARATHON
 	board_game_mode $4e25, $45, NULL,  $00, $55f0, $45, $5672, $45 ; GAMEMODE_TIME_ZONE
@@ -231,10 +231,10 @@ Boards:
 	; BOARD_DRAGON
 	dab Pals_11cf55 ; palettes
 	dwb $4db5, $4e ; background pattern gfx
-	dwb $4bab, $47 ; ?
-	dwb $4bb9, $47 ; ?
-	dwb $4c9e, $47 ; ?
-	dwb $4cac, $47 ; ?
+	dwb $4bab, $47 ; opponent atk meter tilemap (challenge mode)
+	dwb $4bb9, $47 ; opponent atk meter attrmap (challenge mode)
+	dwb $4c9e, $47 ; opponent atk meter tilemap (2P mode)
+	dwb $4cac, $47 ; opponent atk meter attrmap (2P mode)
 
 	board_game_mode $4000, $47, NULL,  $00, $4927, $47, $49ae, $47 ; GAMEMODE_MARATHON
 	board_game_mode $4000, $47, NULL,  $00, $4927, $47, $49ae, $47 ; GAMEMODE_TIME_ZONE
@@ -251,10 +251,10 @@ Boards:
 	; BOARD_DARK
 	dab Pals_117332 ; palettes
 	dwb $4e82, $4e ; background pattern gfx
-	dwb $706d, $45 ; ?
-	dwb $707b, $45 ; ?
-	dwb $715f, $45 ; ?
-	dwb $716d, $45 ; ?
+	dwb $706d, $45 ; opponent atk meter tilemap (challenge mode)
+	dwb $707b, $45 ; opponent atk meter attrmap (challenge mode)
+	dwb $715f, $45 ; opponent atk meter tilemap (2P mode)
+	dwb $716d, $45 ; opponent atk meter attrmap (2P mode)
 
 	board_game_mode $6736, $45, NULL,  $00, $6de0, $45, $6e64, $45 ; GAMEMODE_MARATHON
 	board_game_mode $6736, $45, NULL,  $00, $6de0, $45, $6e64, $45 ; GAMEMODE_TIME_ZONE
@@ -271,10 +271,10 @@ Boards:
 	; BOARD_STEEL
 	dab Pals_117ca2 ; palettes
 	dwb $4fc7, $4e ; background pattern gfx
-	dwb $7a13, $45 ; ?
-	dwb $7a21, $45 ; ?
-	dwb $7af5, $45 ; ?
-	dwb $7b03, $45 ; ?
+	dwb $7a13, $45 ; opponent atk meter tilemap (challenge mode)
+	dwb $7a21, $45 ; opponent atk meter attrmap (challenge mode)
+	dwb $7af5, $45 ; opponent atk meter tilemap (2P mode)
+	dwb $7b03, $45 ; opponent atk meter attrmap (2P mode)
 
 	board_game_mode $7342, $45, NULL,  $00, $77c7, $45, $784b, $45 ; GAMEMODE_MARATHON
 	board_game_mode $7342, $45, NULL,  $00, $77c7, $45, $784b, $45 ; GAMEMODE_TIME_ZONE
@@ -291,10 +291,10 @@ Boards:
 	; BOARD_0E
 	dab Pals_e73bb ; palettes
 	dwb $4000, $37 ; background pattern gfx
-	dwb $6ad9, $37 ; ?
-	dwb $6af5, $37 ; ?
-	dwb $6ae7, $37 ; ?
-	dwb $6b03, $37 ; ?
+	dwb $6ad9, $37 ; opponent atk meter tilemap (challenge mode)
+	dwb $6af5, $37 ; opponent atk meter attrmap (challenge mode)
+	dwb $6ae7, $37 ; opponent atk meter tilemap (2P mode)
+	dwb $6b03, $37 ; opponent atk meter attrmap (2P mode)
 
 	board_game_mode $4000, $48, NULL,  $00, $740b, $39, $7494, $39 ; GAMEMODE_MARATHON
 	board_game_mode $4000, $48, NULL,  $00, $740b, $39, $7494, $39 ; GAMEMODE_TIME_ZONE
@@ -311,10 +311,10 @@ Boards:
 	; BOARD_0F
 	dab Pals_e733b ; palettes
 	dwb $4110, $37 ; background pattern gfx
-	dwb $6b11, $37 ; ?
-	dwb $6b2d, $37 ; ?
-	dwb $6b1f, $37 ; ?
-	dwb $6b3b, $37 ; ?
+	dwb $6b11, $37 ; opponent atk meter tilemap (challenge mode)
+	dwb $6b2d, $37 ; opponent atk meter attrmap (challenge mode)
+	dwb $6b1f, $37 ; opponent atk meter tilemap (2P mode)
+	dwb $6b3b, $37 ; opponent atk meter attrmap (2P mode)
 
 	board_game_mode $46bb, $48, NULL,  $00, $4000, $3a, $4086, $3a ; GAMEMODE_MARATHON
 	board_game_mode $46bb, $48, NULL,  $00, $4000, $3a, $4086, $3a ; GAMEMODE_TIME_ZONE
@@ -331,10 +331,10 @@ Boards:
 	; BOARD_10
 	dab Pals_e734b ; palettes
 	dwb $426a, $37 ; background pattern gfx
-	dwb $6b49, $37 ; ?
-	dwb $6b65, $37 ; ?
-	dwb $6b57, $37 ; ?
-	dwb $6b73, $37 ; ?
+	dwb $6b49, $37 ; opponent atk meter tilemap (challenge mode)
+	dwb $6b65, $37 ; opponent atk meter attrmap (challenge mode)
+	dwb $6b57, $37 ; opponent atk meter tilemap (2P mode)
+	dwb $6b73, $37 ; opponent atk meter attrmap (2P mode)
 
 	board_game_mode $4d61, $48, NULL,  $00, $4508, $3a, $4593, $3a ; GAMEMODE_MARATHON
 	board_game_mode $4d61, $48, NULL,  $00, $4508, $3a, $4593, $3a ; GAMEMODE_TIME_ZONE
@@ -351,10 +351,10 @@ Boards:
 	; BOARD_11
 	dab Pals_e735b ; palettes
 	dwb $43b3, $37 ; background pattern gfx
-	dwb $6b81, $37 ; ?
-	dwb $6b9d, $37 ; ?
-	dwb $6b8f, $37 ; ?
-	dwb $6bab, $37 ; ?
+	dwb $6b81, $37 ; opponent atk meter tilemap (challenge mode)
+	dwb $6b9d, $37 ; opponent atk meter attrmap (challenge mode)
+	dwb $6b8f, $37 ; opponent atk meter tilemap (2P mode)
+	dwb $6bab, $37 ; opponent atk meter attrmap (2P mode)
 
 	board_game_mode $54b9, $48, NULL,  $00, $4a59, $3a, $4ae7, $3a ; GAMEMODE_MARATHON
 	board_game_mode $54b9, $48, NULL,  $00, $4a59, $3a, $4ae7, $3a ; GAMEMODE_TIME_ZONE
@@ -371,10 +371,10 @@ Boards:
 	; BOARD_12
 	dab Pals_e739b ; palettes
 	dwb $44f3, $37 ; background pattern gfx
-	dwb $6bb9, $37 ; ?
-	dwb $6bd5, $37 ; ?
-	dwb $6bc7, $37 ; ?
-	dwb $6be3, $37 ; ?
+	dwb $6bb9, $37 ; opponent atk meter tilemap (challenge mode)
+	dwb $6bd5, $37 ; opponent atk meter attrmap (challenge mode)
+	dwb $6bc7, $37 ; opponent atk meter tilemap (2P mode)
+	dwb $6be3, $37 ; opponent atk meter attrmap (2P mode)
 
 	board_game_mode $5c69, $48, NULL,  $00, $4f55, $3a, $4fcf, $3a ; GAMEMODE_MARATHON
 	board_game_mode $5c69, $48, NULL,  $00, $4f55, $3a, $4fcf, $3a ; GAMEMODE_TIME_ZONE
@@ -391,10 +391,10 @@ Boards:
 	; BOARD_13
 	dab Pals_e738b ; palettes
 	dwb $47b1, $37 ; background pattern gfx
-	dwb $6bf1, $37 ; ?
-	dwb $6c0d, $37 ; ?
-	dwb $6bff, $37 ; ?
-	dwb $6c1b, $37 ; ?
+	dwb $6bf1, $37 ; opponent atk meter tilemap (challenge mode)
+	dwb $6c0d, $37 ; opponent atk meter attrmap (challenge mode)
+	dwb $6bff, $37 ; opponent atk meter tilemap (2P mode)
+	dwb $6c1b, $37 ; opponent atk meter attrmap (2P mode)
 
 	board_game_mode $5f72, $48, NULL,  $00, $544c, $3a, $54d6, $3a ; GAMEMODE_MARATHON
 	board_game_mode $5f72, $48, NULL,  $00, $544c, $3a, $54d6, $3a ; GAMEMODE_TIME_ZONE
@@ -411,10 +411,10 @@ Boards:
 	; BOARD_14
 	dab Pals_e737b ; palettes
 	dwb $464c, $37 ; background pattern gfx
-	dwb $6c29, $37 ; ?
-	dwb $6c45, $37 ; ?
-	dwb $6c37, $37 ; ?
-	dwb $6c53, $37 ; ?
+	dwb $6c29, $37 ; opponent atk meter tilemap (challenge mode)
+	dwb $6c45, $37 ; opponent atk meter attrmap (challenge mode)
+	dwb $6c37, $37 ; opponent atk meter tilemap (2P mode)
+	dwb $6c53, $37 ; opponent atk meter attrmap (2P mode)
 
 	board_game_mode $66b6, $48, NULL,  $00, $59d5, $3a, $5a60, $3a ; GAMEMODE_MARATHON
 	board_game_mode $66b6, $48, NULL,  $00, $59d5, $3a, $5a60, $3a ; GAMEMODE_TIME_ZONE
@@ -431,10 +431,10 @@ Boards:
 	; BOARD_15
 	dab Pals_e736b ; palettes
 	dwb $48e5, $37 ; background pattern gfx
-	dwb $6c61, $37 ; ?
-	dwb $6c7d, $37 ; ?
-	dwb $6c6f, $37 ; ?
-	dwb $6c8b, $37 ; ?
+	dwb $6c61, $37 ; opponent atk meter tilemap (challenge mode)
+	dwb $6c7d, $37 ; opponent atk meter attrmap (challenge mode)
+	dwb $6c6f, $37 ; opponent atk meter tilemap (2P mode)
+	dwb $6c8b, $37 ; opponent atk meter attrmap (2P mode)
 
 	board_game_mode $4000, $49, NULL,  $00, $5f06, $3a, $5f91, $3a ; GAMEMODE_MARATHON
 	board_game_mode $4000, $49, NULL,  $00, $5f06, $3a, $5f91, $3a ; GAMEMODE_TIME_ZONE
@@ -451,10 +451,10 @@ Boards:
 	; BOARD_16
 	dab Pals_e73eb ; palettes
 	dwb $4a2c, $37 ; background pattern gfx
-	dwb $6d41, $37 ; ?
-	dwb $6d5d, $37 ; ?
-	dwb $6d4f, $37 ; ?
-	dwb $6d6b, $37 ; ?
+	dwb $6d41, $37 ; opponent atk meter tilemap (challenge mode)
+	dwb $6d5d, $37 ; opponent atk meter attrmap (challenge mode)
+	dwb $6d4f, $37 ; opponent atk meter tilemap (2P mode)
+	dwb $6d6b, $37 ; opponent atk meter attrmap (2P mode)
 
 	board_game_mode $4707, $49, NULL,  $00, $63de, $3a, $6465, $3a ; GAMEMODE_MARATHON
 	board_game_mode $4707, $49, NULL,  $00, $63de, $3a, $6465, $3a ; GAMEMODE_TIME_ZONE
@@ -471,10 +471,10 @@ Boards:
 	; BOARD_17
 	dab Pals_e73db ; palettes
 	dwb $4b68, $37 ; background pattern gfx
-	dwb $6d09, $37 ; ?
-	dwb $6d25, $37 ; ?
-	dwb $6d17, $37 ; ?
-	dwb $6d33, $37 ; ?
+	dwb $6d09, $37 ; opponent atk meter tilemap (challenge mode)
+	dwb $6d25, $37 ; opponent atk meter attrmap (challenge mode)
+	dwb $6d17, $37 ; opponent atk meter tilemap (2P mode)
+	dwb $6d33, $37 ; opponent atk meter attrmap (2P mode)
 
 	board_game_mode $4b35, $49, NULL,  $00, $68d9, $3a, $6954, $3a ; GAMEMODE_MARATHON
 	board_game_mode $4b35, $49, NULL,  $00, $68d9, $3a, $6954, $3a ; GAMEMODE_TIME_ZONE
@@ -491,10 +491,10 @@ Boards:
 	; BOARD_18
 	dab Pals_e73ab ; palettes
 	dwb $4caa, $37 ; background pattern gfx
-	dwb $6c99, $37 ; ?
-	dwb $6cb5, $37 ; ?
-	dwb $6ca7, $37 ; ?
-	dwb $6cc3, $37 ; ?
+	dwb $6c99, $37 ; opponent atk meter tilemap (challenge mode)
+	dwb $6cb5, $37 ; opponent atk meter attrmap (challenge mode)
+	dwb $6ca7, $37 ; opponent atk meter tilemap (2P mode)
+	dwb $6cc3, $37 ; opponent atk meter attrmap (2P mode)
 
 	board_game_mode $5032, $49, NULL,  $00, $6dba, $3a, $6e3f, $3a ; GAMEMODE_MARATHON
 	board_game_mode $5032, $49, NULL,  $00, $6dba, $3a, $6e3f, $3a ; GAMEMODE_TIME_ZONE
@@ -511,10 +511,10 @@ Boards:
 	; BOARD_19
 	dab Pals_e73fb ; palettes
 	dwb $4df8, $37 ; background pattern gfx
-	dwb $6d79, $37 ; ?
-	dwb $6d95, $37 ; ?
-	dwb $6d87, $37 ; ?
-	dwb $6da3, $37 ; ?
+	dwb $6d79, $37 ; opponent atk meter tilemap (challenge mode)
+	dwb $6d95, $37 ; opponent atk meter attrmap (challenge mode)
+	dwb $6d87, $37 ; opponent atk meter tilemap (2P mode)
+	dwb $6da3, $37 ; opponent atk meter attrmap (2P mode)
 
 	board_game_mode $5630, $49, NULL,  $00, $723e, $3a, $72bd, $3a ; GAMEMODE_MARATHON
 	board_game_mode $5630, $49, NULL,  $00, $723e, $3a, $72bd, $3a ; GAMEMODE_TIME_ZONE
@@ -531,10 +531,10 @@ Boards:
 	; BOARD_1A
 	dab Pals_e73cb ; palettes
 	dwb $4f43, $37 ; background pattern gfx
-	dwb $6cd1, $37 ; ?
-	dwb $6ced, $37 ; ?
-	dwb $6cdf, $37 ; ?
-	dwb $6cfb, $37 ; ?
+	dwb $6cd1, $37 ; opponent atk meter tilemap (challenge mode)
+	dwb $6ced, $37 ; opponent atk meter attrmap (challenge mode)
+	dwb $6cdf, $37 ; opponent atk meter tilemap (2P mode)
+	dwb $6cfb, $37 ; opponent atk meter attrmap (2P mode)
 
 	board_game_mode $5d38, $49, NULL,  $00, $7727, $3a, $77ae, $3a ; GAMEMODE_MARATHON
 	board_game_mode $5d38, $49, NULL,  $00, $7727, $3a, $77ae, $3a ; GAMEMODE_TIME_ZONE
@@ -551,10 +551,10 @@ Boards:
 	; BOARD_1B
 	dab Pals_e73cb ; palettes
 	dwb $5029, $37 ; background pattern gfx
-	dwb $6db1, $37 ; ?
-	dwb $6dbf, $37 ; ?
-	dwb $6db1, $37 ; ?
-	dwb $6dbf, $37 ; ?
+	dwb $6db1, $37 ; opponent atk meter tilemap (challenge mode)
+	dwb $6dbf, $37 ; opponent atk meter attrmap (challenge mode)
+	dwb $6db1, $37 ; opponent atk meter tilemap (2P mode)
+	dwb $6dbf, $37 ; opponent atk meter attrmap (2P mode)
 
 	board_game_mode $5d38, $49, NULL,  $00, $7727, $3a, $77ae, $3a ; GAMEMODE_MARATHON
 	board_game_mode $5d38, $49, NULL,  $00, $7727, $3a, $77ae, $3a ; GAMEMODE_TIME_ZONE
@@ -571,10 +571,10 @@ Boards:
 	; BOARD_1C
 	dab Pals_e73cb ; palettes
 	dwb $70d0, $13 ; background pattern gfx
-	dwb $6dcd, $37 ; ?
-	dwb $6ddb, $37 ; ?
-	dwb $6dcd, $37 ; ?
-	dwb $6ddb, $37 ; ?
+	dwb $6dcd, $37 ; opponent atk meter tilemap (challenge mode)
+	dwb $6ddb, $37 ; opponent atk meter attrmap (challenge mode)
+	dwb $6dcd, $37 ; opponent atk meter tilemap (2P mode)
+	dwb $6ddb, $37 ; opponent atk meter attrmap (2P mode)
 
 	board_game_mode $5d38, $49, NULL,  $00, $7727, $3a, $77ae, $3a ; GAMEMODE_MARATHON
 	board_game_mode $5d38, $49, NULL,  $00, $7727, $3a, $77ae, $3a ; GAMEMODE_TIME_ZONE

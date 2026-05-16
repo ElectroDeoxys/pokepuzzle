@@ -50,12 +50,16 @@ ROMX $13
 	"Bank 13"
 ROMX $14
 	"Bank 14"
+ROMX $15
+	"Bank 15"
 ROMX $19
 	"Bank 19"
 ROMX $1a
 	"Bank 1A"
 ROMX $1b
 	"Bank 1B"
+ROMX $1c
+	"Bank 1C"
 ROMX $1d
 	"Bank 1D"
 ROMX $1e

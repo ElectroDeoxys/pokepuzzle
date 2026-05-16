@@ -283,15 +283,15 @@ LoadBoardPalettes:
 	ld a, [wBoard]
 	call GetBoardStruct
 	add hl, bc
-	ld a, $40
+	ld a, BANK(Boards)
 	call GetFarByte
 	inc hl
 	ld c, a
-	ld a, $40
+	ld a, BANK(Boards)
 	call GetFarByte
 	inc hl
 	ld b, a
-	ld a, $40
+	ld a, BANK(Boards)
 	call GetFarByte
 	inc hl
 	ld l, c

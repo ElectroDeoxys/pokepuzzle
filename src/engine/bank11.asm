@@ -150,7 +150,7 @@ Func_44047:
 	ld a, $80
 	ldh [rVDMA_SRC_LOW], a
 	ld a, $9a
-	ldh [rHDMA3], a
+	ldh [rVDMA_DEST_HIGH], a
 	ld a, $00
 	ldh [rVDMA_DEST_LOW], a
 	xor a
@@ -273,7 +273,7 @@ Func_44047:
 	ldcoord_a 4, 13, v0BGMap1
 	ld a, [hli]
 	ldcoord_a 5, 13, v0BGMap1
-.asm_441fe:
+.asm_441fe
 	ld a, BANK("VRAM1")
 	vramswitch
 	ld hl, rVDMA_SRC_HIGH
@@ -334,7 +334,7 @@ Func_44047:
 	ld a, $40
 	ldh [rVDMA_SRC_LOW], a
 	ld a, $99
-	ldh [rHDMA3], a
+	ldh [rVDMA_DEST_HIGH], a
 	ld a, $00
 	ldh [rVDMA_DEST_LOW], a
 	xor a
@@ -384,7 +384,7 @@ Func_44047:
 	ld a, $c0
 	ldh [rVDMA_SRC_LOW], a
 	ld a, $9a
-	ldh [rHDMA3], a
+	ldh [rVDMA_DEST_HIGH], a
 	ld a, $00
 	ldh [rVDMA_DEST_LOW], a
 	xor a
@@ -479,54 +479,23 @@ Func_45bc0:
 .asm_45bcd
 	ld hl, wca06
 	ld de, wc9e6
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
+	REPT 1 palettes - 1
+		ld a, [hli]
+		ld [de], a
+		inc de
+	ENDR
 	ld a, [hli]
 	ld [de], a
 	ret
+
 .asm_45beb
 	ld hl, wc9fe
 	ld de, wc9e6
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
+	REPT 1 palettes - 1
+		ld a, [hli]
+		ld [de], a
+		inc de
+	ENDR
 	ld a, [hli]
 	ld [de], a
 	ret
@@ -541,106 +510,43 @@ Func_45c09:
 	jr nz, .asm_45c51
 .asm_45c16
 	ld hl, wca06
-	ld de, $c9be
+	ld de, wc9be
+	REPT 1 palettes - 1
+		ld a, [hli]
+		ld [de], a
+		inc de
+	ENDR
 	ld a, [hli]
 	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	ld hl, $ca0e
-	ld de, $c9c6
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
+
+	ld hl, wca0e
+	ld de, wc9c6
+	REPT 1 palettes - 1
+		ld a, [hli]
+		ld [de], a
+		inc de
+	ENDR
 	ld a, [hli]
 	ld [de], a
 	ret
 
 .asm_45c51
 	ld hl, wc9fe
-	ld de, $c9be
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
+	ld de, wc9be
+	REPT 1 palettes - 1
+		ld a, [hli]
+		ld [de], a
+		inc de
+	ENDR
 	ld a, [hli]
 	ld [de], a
 	ld hl, wc9fe
-	ld de, $c9c6
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
-	ld a, [hli]
-	ld [de], a
-	inc de
+	ld de, wc9c6
+	REPT 1 palettes - 1
+		ld a, [hli]
+		ld [de], a
+		inc de
+	ENDR
 	ld a, [hli]
 	ld [de], a
 	ret

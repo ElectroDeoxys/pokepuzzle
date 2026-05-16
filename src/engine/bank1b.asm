@@ -5214,6 +5214,89 @@ Func_6c085:
 	ret
 ; 0x6e509
 
+SECTION "Bank 1B@6fb5", ROMX[$6fb5], BANK[$1b]
+
+Func_6efb5:
+	call Func_6efce
+	ld hl, BlockTilesAndAttributes
+	jr Func_6efe1
+
+	call Func_6efce
+	ld hl, Data_6f01c
+	jp Func_6eff1
+
+	call Func_6efce
+	ld hl, $70f4
+	jr Func_6efe1
+
+Func_6efce:
+	ld a, c
+	and $f8
+	ld l, a
+	ld h, $00
+	add hl, hl
+	add hl, hl
+	ld a, c
+	and $07
+	add a
+	ld e, a
+	ld d, $00
+	add hl, de
+	ld d, h
+	ld e, l
+	ret
+
+Func_6efe1:
+	push hl
+	ld hl, w2d000
+	add hl, bc
+	ld a, [hl]
+	and $3f
+	ld l, a
+	ld h, $00
+	add hl, hl
+	add hl, hl
+	add hl, hl
+	pop bc
+	add hl, bc
+Func_6eff1:
+	ld b, h
+	ld c, l
+	ld a, [bc]
+	inc bc
+	ld hl, wBlockTilemap
+	add hl, de
+	ld [hli], a
+	ld a, [bc]
+	inc bc
+	ld [hl], a
+	ld a, [bc]
+	inc bc
+	ld hl, $dd90
+	add hl, de
+	ld [hli], a
+	ld a, [bc]
+	inc bc
+	ld [hl], a
+	ld a, [bc]
+	inc bc
+	ld hl, wBoardAttrmap
+	add hl, de
+	ld [hli], a
+	ld a, [bc]
+	inc bc
+	ld [hl], a
+	ld a, [bc]
+	inc bc
+	ld hl, $ded0
+	add hl, de
+	ld [hli], a
+	ld a, [bc]
+	inc bc
+	ld [hl], a
+	ret
+; 0x6f01c
+
 SECTION "Bank 1B@701c", ROMX[$701c], BANK[$1b]
 
 Data_6f01c:
@@ -5366,91 +5449,91 @@ BlockTilesAndAttributes:
 	db $00, $08, $10, $18, 4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1
 	; BLOCK_0F
 	db $07, $07, $17, $17, 4 | BG_BANK1 | BG_XFLIP, 4 | BG_BANK1,            4 | BG_BANK1 | BG_XFLIP, 4 | BG_BANK1
-	; BLOCK_20
+	; BLOCK_10
 	db $09, $02, $19, $12, 4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1
-	; BLOCK_21
+	; BLOCK_11
 	db $03, $0a, $03, $1a, 4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1
-	; BLOCK_22
+	; BLOCK_12
 	db $0b, $0c, $1b, $1c, 4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1
-	; BLOCK_23
+	; BLOCK_13
 	db $0d, $0a, $1d, $01, 4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK0
-	; BLOCK_24
+	; BLOCK_14
 	db $0b, $0c, $01, $1c, 4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK0,            4 | BG_BANK1
-	; BLOCK_25
+	; BLOCK_15
 	db $0d, $0a, $1d, $1a, 4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1
-	; BLOCK_26
+	; BLOCK_16
 	db $0b, $13, $1b, $13, 4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1
-	; BLOCK_27
+	; BLOCK_17
 	db $09, $07, $19, $17, 4 | BG_BANK1,            4 | BG_BANK1 | BG_XFLIP, 4 | BG_BANK1,            4 | BG_BANK1 | BG_XFLIP
-	; BLOCK_28
+	; BLOCK_18
 	db $07, $08, $17, $18, 4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1
-	; BLOCK_29
+	; BLOCK_19
 	db $03, $0c, $03, $1c, 4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1
-	; BLOCK_2A
+	; BLOCK_1A
 	db $0b, $06, $1b, $16, 4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1
-	; BLOCK_2B
+	; BLOCK_1B
 	db $06, $0a, $16, $1a, 4 | BG_BANK1 | BG_XFLIP, 4 | BG_BANK1,            4 | BG_BANK1 | BG_XFLIP, 4 | BG_BANK1
-	; BLOCK_2C
+	; BLOCK_1C
 	db $0d, $13, $1d, $13, 4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1
-	; BLOCK_2D
+	; BLOCK_1D
 	db $09, $08, $19, $18, 4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1
-	; BLOCK_2E
+	; BLOCK_1E
 	db $0d, $01, $1d, $1a, 4 | BG_BANK1,            4 | BG_BANK0,            4 | BG_BANK1,            4 | BG_BANK1
-	; BLOCK_2F
+	; BLOCK_1F
 	db $01, $0c, $1b, $1c, 4 | BG_BANK0,            4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1
-	; BLOCK_30
+	; BLOCK_20
 	db $03, $0c, $10, $1e, 4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1
-	; BLOCK_31
+	; BLOCK_21
 	db $0d, $0a, $1f, $18, 4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1
-	; BLOCK_32
+	; BLOCK_22
 	db $0b, $0c, $19, $1e, 4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1
-	; BLOCK_33
+	; BLOCK_23
 	db $0d, $13, $1f, $12, 4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1
-	; BLOCK_34
+	; BLOCK_24
 	db $00, $08, $03, $1a, 4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1
-	; BLOCK_35
+	; BLOCK_25
 	db $09, $08, $1b, $1a, 4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1
-	; BLOCK_36
+	; BLOCK_26
 	db $09, $01, $1b, $06, 4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1
-	; BLOCK_37
+	; BLOCK_27
 	db $01, $08, $06, $1a, 4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1 | BG_XFLIP, 4 | BG_BANK1
-	; BLOCK_38
+	; BLOCK_28
 	db $09, $02, $1b, $13, 4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1
-	; BLOCK_39
+	; BLOCK_29
 	db $03, $0a, $10, $18, 4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1
-	; BLOCK_3A
+	; BLOCK_2A
 	db $0b, $0a, $19, $18, 4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1
-	; BLOCK_3B
+	; BLOCK_2B
 	db $0b, $16, $19, $11, 4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1
-	; BLOCK_3C
+	; BLOCK_2C
 	db $16, $0a, $11, $18, 4 | BG_BANK1 | BG_XFLIP, 4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1
-	; BLOCK_3D
+	; BLOCK_2D
 	db $0b, $13, $19, $12, 4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1
-	; BLOCK_3E
+	; BLOCK_2E
 	db $0d, $01, $1d, $06, 4 | BG_BANK1,            4 | BG_BANK0,            4 | BG_BANK1,            4 | BG_BANK1
-	; BLOCK_3F
+	; BLOCK_2F
 	db $01, $0c, $06, $1c, 4 | BG_BANK0,            4 | BG_BANK1,            4 | BG_BANK1 | BG_XFLIP, 4 | BG_BANK1
-	; BLOCK_40
+	; BLOCK_30
 	db $0d, $06, $1d, $16, 4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1
-	; BLOCK_41
+	; BLOCK_31
 	db $06, $0c, $16, $1c, 4 | BG_BANK1 | BG_XFLIP, 4 | BG_BANK1,            4 | BG_BANK1 | BG_XFLIP, 4 | BG_BANK1
-	; BLOCK_42
+	; BLOCK_32
 	db $0b, $16, $1b, $01, 4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK0
-	; BLOCK_43
+	; BLOCK_33
 	db $16, $0a, $01, $1a, 4 | BG_BANK1 | BG_XFLIP, 4 | BG_BANK1,            4 | BG_BANK0,            4 | BG_BANK1
-	; BLOCK_44
+	; BLOCK_34
 	db $0b, $01, $1b, $06, 4 | BG_BANK1,            4 | BG_BANK0,            4 | BG_BANK1,            4 | BG_BANK1
-	; BLOCK_45
+	; BLOCK_35
 	db $01, $0a, $06, $1a, 4 | BG_BANK0,            4 | BG_BANK1,            4 | BG_BANK1 | BG_XFLIP, 4 | BG_BANK1
-	; BLOCK_46
+	; BLOCK_36
 	db $0d, $16, $1d, $01, 4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK1,            4 | BG_BANK0
-	; BLOCK_47
+	; BLOCK_37
 	db $16, $0c, $01, $1c, 4 | BG_BANK1 | BG_XFLIP, 4 | BG_BANK1,            4 | BG_BANK0,            4 | BG_BANK1
-	; BLOCK_48
+	; BLOCK_38
 	db $05, $06, $08, $09, 3 | BG_BANK0,            3 | BG_BANK0,            3 | BG_BANK0,            3 | BG_BANK0
-	; BLOCK_49
+	; BLOCK_39
 	db $06, $06, $09, $09, 3 | BG_BANK0,            3 | BG_BANK0,            3 | BG_BANK0,            3 | BG_BANK0
-	; BLOCK_4A
+	; BLOCK_3A
 	db $06, $07, $09, $0a, 3 | BG_BANK0,            3 | BG_BANK0,            3 | BG_BANK0,            3 | BG_BANK0
 
 Data_6f3a4:

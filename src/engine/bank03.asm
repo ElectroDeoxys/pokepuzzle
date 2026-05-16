@@ -62,7 +62,7 @@ Func_c04e:
 	ld a, $06
 	wramswitch
 	call Func_c0c2
-	ld a, $e3
+	ld a, LCDC_BG | LCDC_OBJS | LCDC_WINDOW | LCDC_WIN_MAP | LCDC_ENABLE
 	ldh [hLCDC], a
 	call Is2PlayerGameMode
 	jr z, .asm_c07f
@@ -78,9 +78,6 @@ Func_c04e:
 	xor a
 	ldh [hVBlankTrampolinePtr + 1], a
 	ret
-; 0xc087
-
-SECTION "Bank 3@4087", ROMX[$4087], BANK[$3]
 
 Func_c087:
 	call Is2PlayerGameMode
@@ -1347,6 +1344,7 @@ Func_ce3b:
 	ld de, $c9de
 	ld a, $12
 	call FarCopyHLtoDE
+
 	ld a, [wGameLevel]
 	ld c, a
 	ld b, $00
@@ -1357,8 +1355,8 @@ Func_ce3b:
 	ld hl, $5ac0
 	add hl, bc
 	ld a, $12
-	ld bc, $8
-	ld de, $c9ce
+	ld bc, 1 palettes
+	ld de, wc9ce
 	call FarCopyHLtoDE
 	ret
 ; 0xcf49
@@ -1956,14 +1954,14 @@ Func_d4e1:
 	farcall Func_100774
 	farcall Func_9b2d
 	xor a
-	ld [$cd3e], a
+	ld [wcd3e], a
 	ld a, $67
-	ld [$cd3f], a
+	ld [wcd3f], a
 	xor a
-	ld [$cd36], a
-	ld [$cd37], a
-	ld [$cd40], a
-	ld [$cd41], a
+	ld [wcd36], a
+	ld [wcd37], a
+	ld [wcd40], a
+	ld [wcd41], a
 	call Func_d548
 	ret
 
@@ -2135,20 +2133,20 @@ Func_d631:
 	ld c, a
 	farcall Func_100774
 	xor a
-	ld [$cd36], a
-	ld [$cd37], a
+	ld [wcd36], a
+	ld [wcd37], a
 	ld a, $f4
-	ld [$cd38], a
-	ld [$cd3a], a
+	ld [wcd38 + 0], a
+	ld [wcd3a + 0], a
 	ld a, $01
-	ld [$cd39], a
-	ld [$cd3b], a
+	ld [wcd38 + 1], a
+	ld [wcd3a + 1], a
 	xor a
-	ld [$cd3c], a
-	ld [$cd3d], a
-	ld [$cd3e], a
+	ld [wcd3c + 0], a
+	ld [wcd3c + 1], a
+	ld [wcd3e], a
 	ld a, $67
-	ld [$cd3f], a
+	ld [wcd3f], a
 	ld a, $0c
 	ld [wcd42], a
 	ld a, $00
@@ -2160,9 +2158,6 @@ Func_d631:
 	xor a ; CHIKORITA
 	ld [wPlayerMon], a
 	ret
-; 0xd6cf
-
-SECTION "Bank 3@56cf", ROMX[$56cf], BANK[$3]
 
 Func_d6cf:
 	ld de, wBlocks
@@ -2445,14 +2440,14 @@ Func_d95e:
 	ret
 
 Func_d9b0:
-	ld a, $29
-	ld [wc865], a
-	ld a, $50
-	ld [wc866], a
+	ld a, 41
+	ld [wCursorX], a
+	ld a, 80
+	ld [wCursorY], a
 	ld a, $22
 	ld [wc864], a
 	ld a, $00
-	ld [wc867], a
+	ld [wCursorCounter], a
 	ld [wc8ed], a
 	ret
 
@@ -2847,9 +2842,6 @@ Func_dc49:
 	ld a, $14
 	call Func_df1c
 	ret
-; 0xdd1a
-
-SECTION "Bank 3@5d1a", ROMX[$5d1a], BANK[$3]
 
 Func_dd1a:
 	call Func_dfe2
